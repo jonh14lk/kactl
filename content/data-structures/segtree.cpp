@@ -11,7 +11,7 @@ struct segtree {
     for (int i = n - 1; i; i--) seg[i] = merge(seg[i << 1], seg[(i << 1) | 1]);
   }
   void upd(int i, int value) {
-    seg[i += n] = merge(i, value);
+    seg[i] = merge(seg[i+=n], value);
     for (i >>= 1; i; i >>= 1) seg[i] = merge(seg[i << 1], seg[(i << 1) | 1]);
   }
   int qry(int l, int r) {
